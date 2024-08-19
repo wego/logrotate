@@ -1,0 +1,4 @@
+version: "3.7"
+services:
+  wego-logrotate:
+    image: '${DOCKER_IMAGE:?DOCKER_IMAGE}'
