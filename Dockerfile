@@ -1,4 +1,4 @@
-FROM golang:1.22.6-alpine3.20 AS build
+FROM golang:1.26.1-alpine3.23 AS build
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ COPY cmd/ /app/cmd/
 RUN go build -o go-cron /app/cmd/go-cron
 
 
-FROM alpine:3.20
+FROM alpine:3.23
 
 # logrotate version (e.g. 3.9.1-r0)
 ARG LOGROTATE_VERSION=latest
