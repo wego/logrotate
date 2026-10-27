@@ -1,4 +1,4 @@
-FROM golang:1.26.1-alpine3.23 AS build
+FROM golang:1.26.10-alpine3.23 AS build
 
 WORKDIR /app
 
@@ -29,6 +29,7 @@ RUN export CONTAINER_USER=logrotate && \
       tini \
       wget \
       tzdata && \
+    apk upgrade ca-certificates-bundle && \
     if  [ "${LOGROTATE_VERSION}" = "latest" ]; \
       then apk add logrotate ; \
       else apk add "logrotate=${LOGROTATE_VERSION}" ; \
